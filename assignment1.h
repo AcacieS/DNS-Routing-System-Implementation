@@ -9,5 +9,5 @@ void print_cache();
 void clean_up_cache(string filename);
 void print_dns_file(string filename);
 void add_update(string filename);
-
+void insertDomain(string file_domain_name, string ip_address);
 #endif

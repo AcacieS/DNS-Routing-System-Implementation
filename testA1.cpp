@@ -5,23 +5,30 @@ int main() {
 // Fill the cache to its maximum capacity 
 std::cout << "IP address for www.example.com: " << 
 get_ip_address("www.example.com") << std::endl; 
+//print_cache(); 
 std::cout << "IP address for www.google.com: " << 
 get_ip_address("www.google.com") << std::endl; 
+//print_cache(); 
 std::cout << "IP address for www.github.com: " << 
 get_ip_address("www.github.com") << std::endl; 
+//print_cache(); 
 std::cout << "IP address for www.stackoverflow.com: " << 
 get_ip_address("www.stackoverflow.com") << std::endl; 
+//print_cache(); 
 std::cout << "IP address for www.reddit.com: " << 
 get_ip_address("www.reddit.com") << std::endl; 
 // Print the cache contents 
 print_cache(); 
- 
+//it should have:
+/* example, google, github, stackoverflow, reddit */
+
     // Access an existing entry to update its position in the LRU list 
-    std::cout << "IP address for www.google.com: " << 
+    std::cout << "UPDATE THIS POSITION IP address for www.google.com: " << 
 get_ip_address("www.google.com") << std::endl; 
  
+print_cache(); 
     // Add a new entry, which should evict the least recently used entry 
-    std::cout << "IP address for www.twitter.com: " << 
+    std::cout << "REMOVE LAST USED IP address for www.twitter.com: " << 
 get_ip_address("www.twitter.com") << std::endl; 
  
     // Print the cache contents again to verify the eviction 

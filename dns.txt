@@ -3,3 +3,4 @@ www.google.com=8.8.8.8
 www.github.com=192.30.255.113
 www.stackoverflow.com=151.101.1.69
 www.reddit.com=151.101.1.70
+hey=1.1.1.1
