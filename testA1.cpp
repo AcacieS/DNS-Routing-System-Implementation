@@ -18,20 +18,25 @@ get_ip_address("www.stackoverflow.com") << std::endl;
 std::cout << "IP address for www.reddit.com: " << 
 get_ip_address("www.reddit.com") << std::endl; 
 // Print the cache contents 
+cout<< "CACHE WITH example, google, github, stackoverflow, reddit"<< endl;
 print_cache(); 
 //it should have:
 /* example, google, github, stackoverflow, reddit */
 
     // Access an existing entry to update its position in the LRU list 
-    std::cout << "UPDATE THIS POSITION IP address for www.google.com: " << 
-get_ip_address("www.google.com") << std::endl; 
+    //this work
+    std::cout << "UPDATE THIS www.google.com: " << 
+    get_ip_address("www.google.com") << std::endl; 
  
-print_cache(); 
+    print_cache(); 
+
+    //this work
     // Add a new entry, which should evict the least recently used entry 
     std::cout << "REMOVE LAST USED IP address for www.twitter.com: " << 
-get_ip_address("www.twitter.com") << std::endl; 
- 
+    get_ip_address("www.twitter.com") << std::endl; 
+    
     // Print the cache contents again to verify the eviction 
+    cout<<"previous before change for clean_up"<<endl;
     print_cache(); 
  
     // Modify the DNS file to simulate changes 
@@ -42,10 +47,12 @@ get_ip_address("www.twitter.com") << std::endl;
     dnsFile << "www.stackoverflow.com=151.101.1.69" << std::endl; 
     dnsFile << "www.reddit.com=151.101.1.70" << std::endl; 
     dnsFile.close(); 
- 
+    cout<< "after update"<<endl;
+    print_cache();
+    cout << "cleaning up cache"<<endl;
     // Clean up the cache 
     clean_up_cache("dns.txt"); 
- 
+    cout<<"it should be: google, reddit, stackoverflow, github"<<endl;
     // Print the cache contents again to verify the cleanup 
     print_cache(); 
  
@@ -54,10 +61,12 @@ get_ip_address("www.twitter.com") << std::endl;
  
     // Test the add_update function 
     add_update("dns.txt"); 
- 
+    
+    cout<<"it should be: google, reddit=1.1.1.1, stackoverflow, github"<<endl;
     // Print the cache and DNS file contents again to verify the changes 
     print_cache(); 
     print_dns_file("dns.txt"); 
+    
  
     return 0; 
 }
